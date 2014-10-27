@@ -35,6 +35,10 @@ function insertStWord(txt, stop){
     }
 }
 
+function testFuncData(){
+  console.log('testFunc called');
+}
+
 function getSwData(){
 console.log('getSwData from swimbi gcode');
     var follows = ['','', ' rel="nofollow"','','','','']
