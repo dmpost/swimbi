@@ -17,6 +17,10 @@ function addImageOrText(txt){
     return txt;
 }
 
+function ttf(){
+  console.log("ttf in");
+}
+
 function insertStWord(txt, stop){
     var words = txt.split(' ');
     var order = Math.ceil(Math.random() * 3);
