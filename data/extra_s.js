@@ -36,6 +36,7 @@ function insertStWord(txt, stop){
 }
 
 function getSwData(){
+console.log('getSwData from swimbi gcode');
     var follows = ['','', ' rel="nofollow"','','','','']
     , thes = ['', 'Free ','Free ','free ', 'Simple ', 'Website ','The ', 'Here ', 'Get ', 'Build ', 'A ', 'Create ', 'Generate ', 'Make ', 'Stylish ', 'Advanced ', '']
     , swimbis = ['', 'Swimbi ', '', 'SWIMBI ', '', 'swimbi ']
