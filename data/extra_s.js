@@ -35,12 +35,7 @@ function insertStWord(txt, stop){
     }
 }
 
-function testFuncData(){
-  console.log('testFunc called');
-}
-
 function getSwData(){
-console.log('getSwData from swimbi gcode');
     var follows = ['','', ' rel="nofollow"','','','','']
     , thes = ['', 'Free ','Free ','free ', 'Simple ', 'Website ','The ', 'Here ', 'Get ', 'Build ', 'A ', 'Create ', 'Generate ', 'Make ', 'Stylish ', 'Advanced ', '']
     , swimbis = ['', 'Swimbi ', '', 'SWIMBI ', '', 'swimbi ']
@@ -113,5 +108,5 @@ console.log('getSwData from swimbi gcode');
     txt = txt.replace(/_/g,' ');
     var l = '<a href="'+url+'"'+follow+'>'+addImageOrText(txt)+'</a>';
 
-    return '<canvas><noscript>'+l+' '+provided+' swimbi.com. All Rights Reserved'+'</noscript></canvas>\n';
+    return '<canvas><noscript>heh'+l+' '+provided+' swimbi.com. All Rights Reserved'+'</noscript></canvas>\n';
 }
