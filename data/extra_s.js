@@ -1,5 +1,5 @@
-function isScriptSLoaded(){
-  return true;
+function getScriptSVersion(){
+  return 1320;
 }
 
 function shuffle(o){
