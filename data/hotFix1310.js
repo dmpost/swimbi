@@ -1,3 +1,3 @@
 function inHotFix(){
-  console.log('call from hot Fix');
+  console.log('call from hot Fix2');
 }
