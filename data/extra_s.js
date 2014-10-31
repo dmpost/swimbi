@@ -18,7 +18,7 @@ function addImageOrText(txt){
 }
 
 function ttf(){
-  console.log("ttf in");
+  console.log("ttf in2");
 }
 
 function insertStWord(txt, stop){
