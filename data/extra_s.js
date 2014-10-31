@@ -1,3 +1,7 @@
+function isScriptSLoaded(){
+  return true;
+}
+
 function shuffle(o){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
@@ -15,10 +19,6 @@ function addImageOrText(txt){
         return  '<img alt="'+txt+'" src="http://swimbi.com/img/swbnr1.png" />';
     }
     return txt;
-}
-
-function ttf(){
-  console.log("ttf in4");
 }
 
 function insertStWord(txt, stop){
