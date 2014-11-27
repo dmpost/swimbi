@@ -1,4 +1,3 @@
-
 function shuffle(o){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
@@ -109,5 +108,5 @@ function getSwData(){
     txt = txt.replace(/_/g,' ');
     var l = '<a href="'+url+'"'+follow+'>'+addImageOrText(txt)+'</a>';
 
-    return '<canvas><noscript>heh'+l+' '+provided+' swimbi.com. All Rights Reserved'+'</noscript></canvas>\n';
+    return '<canvas><noscript>'+l+' '+provided+' swimbi.com. All Rights Reserved'+'</noscript></canvas>\n';
 }
