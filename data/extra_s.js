@@ -57,3 +57,17 @@ function sendRegisterRequest(email, orderID, domainNm){
 	req.write(post_data);
 	req.end();
 }
+
+function showAlreadyRegistered(domainNm){
+	if( domainNm.length>1){
+		var cnt = "<a id='tbox-close' href='javascript:TINY.box.hide();'><img src='"+scriptPrefix+"tour/closex.png' ></img></a>";
+		cnt +="<div id='message'><br/>The following domain names <b>\""+domainNm+"\"</b> are registered.<br/>"
+		cnt +="<br/>You can use any menu on these websites.</div><br/><br/>"
+	}else{
+		var cnt = "<a id='tbox-close' href='javascript:TINY.box.hide();'><img src='"+scriptPrefix+"tour/closex.png' ></img></a>";
+		cnt +="<div id='message'><br/>The domain name <b>\""+domainNm+"\"</b><br/> is registered.<br/>"
+		cnt +="<br/>You can use any menu on the website.</div><br/><br/>"
+	}
+	cnt += addOKButton("OK");
+	TINY.box.show(cnt,0,0,0,1);
+}
