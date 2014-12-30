@@ -1,6 +1,16 @@
 function showTinyBoxRegDomain(){
+  var app_platform;
+	if(isNWK){
+		if(isMac){
+			app_platform = 'Mac app';
+		}else{
+			app_platform = 'Win app';
+		}
+	}else{
+		app_platform = 'Chrome app';
+	}
 	var cnt = "<a id='tbox-close' href='javascript:TINY.box.hide();'><img src='"+scriptPrefix+"tour/closex.png' ></img></a>";
-		cnt +='<br/>Don\'t have an order ID? <a href="javascript:gui.Shell.openExternal(\'http://swimbi.com/register/#plans\');">Sign up.</a><br/><br/>'
+		cnt +='<br/>Don\'t have an order ID? <a href="javascript:gui.Shell.openExternal(\'http://swimbi.com/register/?SRC='+app_platform+'#plans\');">Sign up.</a><br/><br/>'
 		cnt +="Enter your order info and domain you want to register.<br/><br/>"
 		cnt += "<div id='extFormRegDomain' style='display:block; width:320px; height: 130px;'></div>";
 		cnt +="<br/>"
