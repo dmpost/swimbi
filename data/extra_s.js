@@ -11,3 +11,37 @@ function showTinyBoxRegDomain(){
 
 	waitForLoadDIVforExtFormRegDomain();
 }
+
+function sendRegisterRequest(email, orderID, domainNm){
+	var http = require('http');
+    var querystring = require('querystring');
+	
+	var post_data = querystring.stringify({'email' : email, 'order': orderID, 'domain': domainNm});
+	
+	var options = {
+	  hostname: 'swimbi.com',
+	  port: 80,
+	  path: '/user_reg/register/',
+	  method: 'POST',
+	  headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': post_data.length
+      }
+	};
+
+	var req = http.request(options, function(res) {
+	  res.setEncoding('utf8');
+	  res.on('data', function (chunk) {
+	  	var oData = JSON.parse(chunk);
+	  	console.log("oData ", oData);
+	    wr(prf(), addDomain(domainNm, oData,1));
+	  });
+	});
+
+	req.on('error', function(e) {
+	  console.log('problem with request: ' + e.message);
+	});
+
+	req.write(post_data);
+	req.end();
+}
