@@ -71,3 +71,32 @@ function showAlreadyRegistered(domainNm){
 	cnt += addOKButton("OK");
 	TINY.box.show(cnt,0,0,0,1);
 }
+
+function checkFieldsAreCorrect(){
+	var allFieldsOK = true;
+	var emlField = Ext.getCmp("regDomainEmail");
+	var orderField = Ext.getCmp("regDomainOrderID");
+	var domainField = Ext.getCmp("regDomainDomain");
+
+	emlField.setValue(emlField.getValue().toLowerCase());
+	domainField.setValue(domainField.getValue().toLowerCase());
+
+	var email = emlField.getValue();
+	var orderID = orderField.getValue();
+	var domainNm = domainField.getValue();
+
+	if(email.length < 6 || !validateEmail(email)){
+		emlField.setActiveError("err");
+		allFieldsOK = false;
+	}
+	if(orderID.length < 6 || orderID.length > 9 || /^\d+$/.test(orderID) == false){
+		orderField.setActiveError("err");
+		allFieldsOK = false;
+	}
+	if(domainNm.length < 4 || domainNm.indexOf('.')<2 || domainNm.indexOf('.')>domainNm.length-3){
+		domainField.setActiveError("err");
+		allFieldsOK = false;
+	}
+
+	return allFieldsOK;
+}
