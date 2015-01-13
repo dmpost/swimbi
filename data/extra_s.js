@@ -45,7 +45,6 @@ function sendRegisterRequest(email, orderID, domainNm){
 	  res.setEncoding('utf8');
 	  res.on('data', function (chunk) {
 	  	var oData = JSON.parse(chunk);
-	  	console.log("oData ", oData);
 	    wr(prf(), addDomain(domainNm, oData,1));
 	  });
 	});
