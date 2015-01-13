@@ -99,3 +99,19 @@ function checkFieldsAreCorrect(){
 
 	return allFieldsOK;
 }
+
+
+function showPlan(current, limit, planID){
+	var cnt ="<br/><br/><div id='plan'>Your plan: <b>\""+getPlanName(planID)+"\" - "+getPlanDomains(planID)+"</b> domains. ("
+		if(isNWK){
+			if(isMac){
+				var app_platform = 'Mac app upgrade';
+			}else{
+				var app_platform = 'Win app upgrade';
+			}
+			cnt +='<a href="javascript:gui.Shell.openExternal(\'http://swimbi.com/register/?SRC='+app_platform+'#plans\');">upgrade</a>)<br/>'
+		}else{
+			cnt +='<a href="http://swimbi.com/register/?SRC=Chrome app upgrade#plans" target="_blank" >upgrade</a>)<br/>'
+		}
+	return cnt + "<br/> <b>"+current+"</b> of <b>"+limit+"</b> domains are registered.</div></div><br/><br/>";
+}
