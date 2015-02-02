@@ -115,3 +115,79 @@ function showPlan(current, limit, planID){
 		}
 	return cnt + "<br/> <b>"+current+"</b> of <b>"+limit+"</b> domains are registered.</div></div><br/><br/>";
 }
+
+function tryLoadOldNavigation(data){
+    var tempHid = document.getElementById('tempHid');
+    var divFnavReg = /<div .*id *= *["']f_source_navigation["'].*>[\s\S]*?<\/div>\n*/mi;
+    var divFsmReg = /<div .*id *= *["']f-source-menu["'].*>[\s\S]*?<\/div>\n*/mi;
+    var navigationFound = divFnavReg.exec(data);
+    var divFsmFound = divFsmReg.exec(data);
+    var divMenu = /<div .*id *= *["']menu["'].*>[\s\S]*?<\/div>\n*/mi;
+    var divVMenu = /<div .*id *= *["']vmenu["'].*>[\s\S]*?<\/div>\n*/mi;
+    var body = /< *body.*>[\s\S]*?<\/body>\n*/mi;
+    var bodyFound = body.exec(data);
+    var menuFound = divMenu.exec(data);
+    var vmenuFound = divVMenu.exec(data);
+    if(navigationFound || menuFound || vmenuFound){
+        if(menuFound || vmenuFound){
+            if(bodyFound){
+                bodyFound = bodyFound[0].replace(/< *body.*>/mi,'');
+                bodyFound = bodyFound.replace(/<\/body>/mi,'');
+                tempHid.innerHTML = bodyFound;
+            }else{
+                tempHid.innerHTML = data;
+            }
+        }else if(divFsmFound){
+            var xml_path = checkIfXMLfound(data);
+            if(xml_path){
+                tempHid.innerHTML = tryLoadXML(xml_path);
+            }
+        }
+    }
+    var resultFromDiv = getNavFromTempHid();
+    if(!resultFromDiv && divFsmFound){
+        var xml_path = checkIfXMLfound(data);
+        if(xml_path){
+            tempHid.innerHTML = tryLoadXML(xml_path);
+        }
+    }
+
+    return getNavFromTempHid();
+}
+
+function checkIfPageHasSwimbiCode(data){
+	var foundSwimbiCode = findSwimbiOnPage(data);
+	if(foundSwimbiCode == 2){
+		if(localStorage.menuLayoutIDselected){
+			doubleMenuSelect(data, localStorage.menuLayoutIDselected);
+		}else{
+			showSelectMenuToEditDialog(data);
+		}
+	}else{
+		TINY.box.hide();
+		tryToLoadSettingsFromPage(data, foundSwimbiCode);
+	}
+	tempMacCopyFix();
+}
+
+function tempMacCopyFix() {
+	if (isNWK && isMac) {
+		if (process.platform === 'darwin') {
+			Mousetrap.bindGlobal("command+a", function() {
+				document.execCommand("selectAll");
+			});
+
+			Mousetrap.bindGlobal("command+x", function() {
+				document.execCommand("cut");
+			});
+
+			Mousetrap.bindGlobal("command+c", function() {
+				document.execCommand("copy");
+			});
+
+			Mousetrap.bindGlobal("command+v", function() {
+				document.execCommand("paste");
+			});
+		}
+	}
+}
