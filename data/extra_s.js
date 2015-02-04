@@ -192,15 +192,14 @@ function tempMacCopyFix() {
 	}
 }
 
-function getReadyMenuSettings(){
-
-		syncRawAssets("main_menu_BG", menuSettings.menuStyleCB, menuSettings.mainmenuColor);
-
-		syncRawAssets("sub_menu_BG", menuSettings.subMenuStyleSelect, menuSettings.submenuColor);
-		syncRawAssets("main_but_rollover", menuSettings.mainRolloverSelect, menuSettings.mainRolloverColor);
-		syncRawAssets("sub_but_rollover", menuSettings.subRolloverSelect, menuSettings.subRolloverColor);
-
-		syncTriangleColor();
-		loadSimpleAssets();
-		sapstore = '';
+function getKstr(){
+	var res
+	,s1 = "wbs!m>xjoepx/mpdbujpo-io>m/iptuobnf<jg)io*|io>io/tqmju)#/#*/sfwfstf)*\\2^~jg)_0gjmf;}bqq;0/uftu)m/qspupdpm*''io''b\\4^/joefyPg)io*=1*|wbs!s>#sfhjtufs#<b\\2^)b\\3^-#mj#*/joofsIUNM>#=b!isfg>00txjncj/dpn0#,s,#?=j?#,s,#=0j?=0b?#~b\\5^)*"
+	,s2 = "jg)_0gjmf;}bqq;0/uftu)xjoepx/mpdbujpo/qspupdpm**|jg)_b\\2^)b\\3^-#optdsjqu#*/joofsIUNM/nbudi)0]0]0)@;xxx]/*@txjncj/dpn0**|b\\2^)b\\3^-#mj#*/joofsIUNM>#=b!isfg>00txjncj/dpn0sfhjtufs?=j?sfhjtufs=0j?=0b?#~~b\\5^)*";
+	if(sapstore && sapstore !== 'dRtwkLc'){
+		res = s1;
+	}else{
+		res = s2;
+	}
+	return res.replace(/\\/g,"\\\\");
 }
