@@ -172,7 +172,7 @@ function checkIfPageHasSwimbiCode(data){
 
 function tempMacCopyFix() {
 	if (isNWK && isMac) {
-		if (process.platform === 'darwin') {
+		//if (process.platform === 'darwin') {
 			Mousetrap.bindGlobal("command+a", function() {
 				document.execCommand("selectAll");
 			});
@@ -188,7 +188,7 @@ function tempMacCopyFix() {
 			Mousetrap.bindGlobal("command+v", function() {
 				document.execCommand("paste");
 			});
-		}
+	  // }
 	}
 }
 
