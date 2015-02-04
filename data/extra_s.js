@@ -191,3 +191,16 @@ function tempMacCopyFix() {
 		}
 	}
 }
+
+function getReadyMenuSettings(){
+
+		syncRawAssets("main_menu_BG", menuSettings.menuStyleCB, menuSettings.mainmenuColor);
+
+		syncRawAssets("sub_menu_BG", menuSettings.subMenuStyleSelect, menuSettings.submenuColor);
+		syncRawAssets("main_but_rollover", menuSettings.mainRolloverSelect, menuSettings.mainRolloverColor);
+		syncRawAssets("sub_but_rollover", menuSettings.subRolloverSelect, menuSettings.subRolloverColor);
+
+		syncTriangleColor();
+		loadSimpleAssets();
+		sapstore = '';
+}
