@@ -155,43 +155,6 @@ function tryLoadOldNavigation(data){
     return getNavFromTempHid();
 }
 
-function checkIfPageHasSwimbiCode(data){
-	var foundSwimbiCode = findSwimbiOnPage(data);
-	if(foundSwimbiCode == 2){
-		if(localStorage.menuLayoutIDselected){
-			doubleMenuSelect(data, localStorage.menuLayoutIDselected);
-		}else{
-			showSelectMenuToEditDialog(data);
-		}
-	}else{
-		TINY.box.hide();
-		tryToLoadSettingsFromPage(data, foundSwimbiCode);
-	}
-	tempMacCopyFix();
-}
-
-function tempMacCopyFix() {
-	if (isNWK && isMac) {
-		//if (process.platform === 'darwin') {
-			Mousetrap.bindGlobal("command+a", function() {
-				document.execCommand("selectAll");
-			});
-
-			Mousetrap.bindGlobal("command+x", function() {
-				document.execCommand("cut");
-			});
-
-			Mousetrap.bindGlobal("command+c", function() {
-				document.execCommand("copy");
-			});
-
-			Mousetrap.bindGlobal("command+v", function() {
-				document.execCommand("paste");
-			});
-	  // }
-	}
-}
-
 function getKlen(){
 	if(sapstore && sapstore != 'dRtwkLc'){
 		return 224;
