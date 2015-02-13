@@ -1,8 +1,8 @@
 {
 	"swimbi_version":{
-		"win_app": [1,5,2],
-		"mac_app": [1,5,2],
-		"s": 4,
+		"win_app": [1,6,0],
+		"mac_app": [1,6,0],
+		"s": 0,
 		"hotFixes": {"140":1} 
 	}
 }
