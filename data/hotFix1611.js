@@ -24,12 +24,3 @@ function extraFixFunc6(){
 		localStorage.setItem('siteShown', 1);
 	}
 }
-
-function extraFixFunc5(){
-	var shown = localStorage.getItem('siteShown');
-	if(!shown){
-		var p = isMac ? "mac" : "win";
-		gui.Shell.openExternal("http://swimbi.com/?utm_source="+p+"app&utm_medium=app&utm_campaign="+p+"%20app%20hit");
-		localStorage.setItem('siteShown', 1);
-	}
-}
