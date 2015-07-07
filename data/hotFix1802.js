@@ -96,11 +96,10 @@ function platformLetter(){
 
 function rgNames(){
 	var regInfo = localStorage.getItem('dhassap')
-	, ret;
+	, ret = regInfo;
 	if(regInfo){
 	    var dms = regInfo.split('|')
 	    , multi = dms.length>1;
-	    ret = regInfo;
 	    if(multi)ret = dms.join(' | ');
 	}else{
 		ret = 'Unregistered';
