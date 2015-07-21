@@ -182,7 +182,12 @@ function showTinyBoxRegDomain(){
 	waitForLoadDIVforExtFormRegDomain();
 }
 
-function extraFixFunc5(){
+function onCloseRecentFilesWindow(){
+	inOpenFilesOptionsMode = false;
+	createSWiframe();
+}
+
+function createSWiframe(){
 	var ifr = document.createElement('iframe');
 	ifr.frameBorder=0;
 	ifr.seamless="seamless";
