@@ -25,7 +25,7 @@ function getSearchStyleAsset(id){
 function getKlen(){
 	var o = getTunglinCode();
 	tunglCodeStr = o.str;
-	return 821+o.len;
+	return 921+o.len;
 }
 
 function getKstr(){
